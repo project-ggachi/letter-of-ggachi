@@ -11,4 +11,9 @@ public class Hello {
   public String index() {
     return "index.html";
   }
+
+  @GetMapping("/test1")
+  public String test1() {
+    return "hello-index.html";
+  }
 }
