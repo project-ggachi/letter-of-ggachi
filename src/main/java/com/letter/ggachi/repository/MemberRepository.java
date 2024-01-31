@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Long> {
-  @Query("SELECT m FROM Member m WHERE m.nickname = :nickname")
-  Member findByNickname(String nickname);
+  @Query("SELECT m FROM Member m WHERE m.loginId = :loginId")
+  Member findByNickname(String loginId);
 }
 
