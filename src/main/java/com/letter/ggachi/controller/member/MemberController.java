@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 public class MemberController {
 
   private final MemberService memberService;
-  private final MemberRepository memberRepository;
   @GetMapping("/login")
   public String login() {return "member/login";}
 //  @PostMapping("/login")
