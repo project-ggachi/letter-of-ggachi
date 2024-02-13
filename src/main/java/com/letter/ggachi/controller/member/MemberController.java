@@ -31,7 +31,7 @@ public class MemberController {
   public void signup(@ModelAttribute MemberLoginDto memberLoginDto)
   {
     log.info("{}", memberLoginDto );
-    memberService.save(Member.builder().nickname(memberLoginDto.getLoginId()).password(memberLoginDto.getPassword()).build());
+//    memberService.save(Member.builder().nickname(memberLoginDto.getLoginId()).password(memberLoginDto.getPassword()).build());
   }
 
   @ResponseBody
