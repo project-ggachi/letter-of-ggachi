@@ -15,17 +15,17 @@ import java.util.List;
 @Builder
 @SequenceGenerator(name = "SEQ_GGACHI_MEMBER_GENERATOR", sequenceName = "SEQ_SEQ_GGACHI_MEMBER")
 public class Member extends Period {
-
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SEQ_GGACHI_MEMBER_GENERATOR")
   @Column(name = "MEMBER_ID")
   private Long id;
-  private String nickName;
+  private String nickname;
   private String password;
   private String name;
   private String email;
   private String phoneNumber;
   private String introduction;
-  @OneToMany(mappedBy = "member")
+  @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
   private List<Post> posts;
-
+  @OneToMany(mappedBy = "writer", fetch = FetchType.LAZY)
+  private List<Letter> letters;
 }

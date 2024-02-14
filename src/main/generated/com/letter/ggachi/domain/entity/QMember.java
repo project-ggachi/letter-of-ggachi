@@ -31,12 +31,14 @@ public class QMember extends EntityPathBase<Member> {
 
     public final StringPath introduction = createString("introduction");
 
+    public final ListPath<Letter, QLetter> letters = this.<Letter, QLetter>createList("letters", Letter.class, QLetter.class, PathInits.DIRECT2);
+
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedDate = _super.modifiedDate;
 
     public final StringPath name = createString("name");
 
-    public final StringPath nickName = createString("nickName");
+    public final StringPath nickname = createString("nickname");
 
     public final StringPath password = createString("password");
 

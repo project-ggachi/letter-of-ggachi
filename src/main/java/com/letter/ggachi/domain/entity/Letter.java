@@ -21,13 +21,15 @@ public class Letter extends Period {
     @Column(name = "LETTER_ID")
     private Long id;
     private String title;
-    private String content;
-    private String status;
+    private String contents;
+    private String letterStatus;
     private String phoneNumber;
     private String introduction;
-    private String writer;
-    @JoinColumn(name = "POST_ID")
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MEMBER_ID")
+    private Member writer;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "POST_ID")
     private Post post;
 
 }

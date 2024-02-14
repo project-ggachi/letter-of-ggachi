@@ -24,7 +24,7 @@ public class QLetter extends EntityPathBase<Letter> {
 
     public final com.letter.ggachi.domain.base.QPeriod _super = new com.letter.ggachi.domain.base.QPeriod(this);
 
-    public final StringPath content = createString("content");
+    public final StringPath contents = createString("contents");
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
@@ -33,6 +33,8 @@ public class QLetter extends EntityPathBase<Letter> {
 
     public final StringPath introduction = createString("introduction");
 
+    public final StringPath letterStatus = createString("letterStatus");
+
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedDate = _super.modifiedDate;
 
@@ -40,11 +42,9 @@ public class QLetter extends EntityPathBase<Letter> {
 
     public final QPost post;
 
-    public final StringPath status = createString("status");
-
     public final StringPath title = createString("title");
 
-    public final StringPath writer = createString("writer");
+    public final QMember writer;
 
     public QLetter(String variable) {
         this(Letter.class, forVariable(variable), INITS);
@@ -65,6 +65,7 @@ public class QLetter extends EntityPathBase<Letter> {
     public QLetter(Class<? extends Letter> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.post = inits.isInitialized("post") ? new QPost(forProperty("post"), inits.get("post")) : null;
+        this.writer = inits.isInitialized("writer") ? new QMember(forProperty("writer")) : null;
     }
 
 }

@@ -20,14 +20,14 @@ public class Post extends Period {
     @Column(name = "POST_ID")
     private Long id;
     private String title;
-    private String status;
-    private String enc;
+    private String postStatus;
+    private String postEnc;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     @JoinColumn(name = "MEMBER_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Letter> letters;
 
 }
