@@ -2,8 +2,7 @@ package com.letter.ggachi.controller.member;
 
 import com.letter.ggachi.domain.dto.MemberLoginDto;
 import com.letter.ggachi.domain.entity.Member;
-import com.letter.ggachi.repository.MemberRepository;
-import com.letter.ggachi.service.MemberService;
+import com.letter.ggachi.service.member.MemberService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -31,13 +30,13 @@ public class MemberController {
   public void signup(@ModelAttribute MemberLoginDto memberLoginDto)
   {
     log.info("{}", memberLoginDto );
-    memberService.save(Member.builder().nickname(memberLoginDto.getLoginId()).password(memberLoginDto.getPassword()).build());
+//    memberService.save(Member.builder().nickname(memberLoginDto.getLoginId()).password(memberLoginDto.getPassword()).build());
   }
 
   @ResponseBody
   @GetMapping("/{nickname}")
   public Member getNickname(@PathVariable String nickname) {
-    return memberService.findByNickname(nickname);
+    return null;
   }
 
 

@@ -6,15 +6,15 @@ spring:
       path: /h2-console
 
   datasource:
-#    url: jdbc:h2:mem:ggachi
-#    username: sa
-#    password:
-#    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:ggachi
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
 
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ggachi?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: ggachi
-    password: 1234
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/ggachi?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    username: ggachi
+#    password: 1234
 
   data:
     web:
@@ -25,8 +25,8 @@ spring:
   jpa:
     hibernate:
       database-platform: org.hibernate.dialect.MySQLDialect
-      ddl-auto: create
-#      ddl-auto: update
+#      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         use_sql_comments: true
