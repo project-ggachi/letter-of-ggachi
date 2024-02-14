@@ -29,12 +29,18 @@ public class QPost extends EntityPathBase<Post> {
 
     public final StringPath enc = createString("enc");
 
+    public final DateTimePath<java.time.LocalDateTime> endDate = createDateTime("endDate", java.time.LocalDateTime.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
+
+    public final ListPath<Letter, QLetter> letters = this.<Letter, QLetter>createList("letters", Letter.class, QLetter.class, PathInits.DIRECT2);
 
     public final QMember member;
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedDate = _super.modifiedDate;
+
+    public final DateTimePath<java.time.LocalDateTime> startDate = createDateTime("startDate", java.time.LocalDateTime.class);
 
     public final StringPath status = createString("status");
 
