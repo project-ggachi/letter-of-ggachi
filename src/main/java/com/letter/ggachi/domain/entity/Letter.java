@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "GGACHI_LETTER")
 @SequenceGenerator(name = "SEQ_GGACHI_LETTER_GENERATOR", sequenceName = "SEQ_GGACHI_LETTER")
-@ToString @Getter
+@Getter @AllArgsConstructor
+@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Letter extends Period {
 
@@ -29,16 +30,4 @@ public class Letter extends Period {
     @ManyToOne(fetch = FetchType.LAZY)
     private Post post;
 
-    @Builder
-
-    public Letter(Long id, String title, String content, String status, String phoneNumber, String introduction, String writer, Post post) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.status = status;
-        this.phoneNumber = phoneNumber;
-        this.introduction = introduction;
-        this.writer = writer;
-        this.post = post;
-    }
 }

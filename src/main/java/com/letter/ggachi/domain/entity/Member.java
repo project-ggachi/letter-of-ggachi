@@ -9,30 +9,23 @@ import java.util.List;
 
 @Entity
 @Table(name = "GGACHI_MEMBER")
-@ToString @Getter
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 @SequenceGenerator(name = "SEQ_GGACHI_MEMBER_GENERATOR", sequenceName = "SEQ_SEQ_GGACHI_MEMBER")
 public class Member extends Period {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SEQ_GGACHI_MEMBER_GENERATOR")
   @Column(name = "MEMBER_ID")
   private Long id;
-  private String loginId;
+  private String nickName;
   private String password;
   private String name;
   private String email;
   private String phoneNumber;
   private String introduction;
+  @OneToMany(mappedBy = "member")
+  private List<Post> posts;
 
-  @Builder
-
-  public Member(Long id, String loginId, String password, String name, String email, String phoneNumber, String introduction) {
-    this.id = id;
-    this.loginId = loginId;
-    this.password = password;
-    this.name = name;
-    this.email = email;
-    this.phoneNumber = phoneNumber;
-    this.introduction = introduction;
-  }
 }

@@ -10,7 +10,9 @@ import java.util.List;
 @Entity
 @Table(name = "GGACHI_POST")
 @SequenceGenerator(name = "SEQ_GGACHI_POST_GENERATOR", sequenceName = "SEQ_GGACHI_POST")
-@ToString @Getter
+@Getter
+@AllArgsConstructor
+@Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post extends Period {
     @Id
@@ -20,16 +22,12 @@ public class Post extends Period {
     private String title;
     private String status;
     private String enc;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     @JoinColumn(name = "MEMBER_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
+    @OneToMany(mappedBy = "post")
+    private List<Letter> letters;
 
-    @Builder
-    public Post(Long id, String title, String status, String enc, Member member) {
-        this.id = id;
-        this.title = title;
-        this.status = status;
-        this.enc = enc;
-        this.member = member;
-    }
 }
