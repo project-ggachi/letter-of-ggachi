@@ -5,7 +5,7 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-public class LetterException {
+public class LetterException extends RuntimeException{
   private final HttpStatus httpStatus;
   private final String message;
 

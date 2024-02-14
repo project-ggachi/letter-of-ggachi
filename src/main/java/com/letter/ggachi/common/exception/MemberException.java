@@ -5,7 +5,7 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-public class MemberException {
+public class MemberException extends RuntimeException{
   private final HttpStatus httpStatus;
   private final String message;
 
