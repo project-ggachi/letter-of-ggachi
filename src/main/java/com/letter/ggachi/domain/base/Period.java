@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @ToString
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class Period {
+public abstract class Period {
   @CreatedDate
   private LocalDateTime createdDate;
   @LastModifiedDate
