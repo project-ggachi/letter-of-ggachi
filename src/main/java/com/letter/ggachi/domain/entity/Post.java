@@ -18,8 +18,6 @@ public class Post extends Period {
     @Column(name = "POST_ID")
     private Long id;
     private String title;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
     private String status;
     private String enc;
     @JoinColumn(name = "MEMBER_ID")
@@ -27,11 +25,9 @@ public class Post extends Period {
     private Member member;
 
     @Builder
-    public Post(Long id, String title, LocalDateTime startDate, LocalDateTime endDate, String status, String enc, Member member) {
+    public Post(Long id, String title, String status, String enc, Member member) {
         this.id = id;
         this.title = title;
-        this.startDate = startDate;
-        this.endDate = endDate;
         this.status = status;
         this.enc = enc;
         this.member = member;
