@@ -25,7 +25,8 @@ spring:
   jpa:
     hibernate:
       database-platform: org.hibernate.dialect.MySQLDialect
-      ddl-auto: create
+#      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         use_sql_comments: true
