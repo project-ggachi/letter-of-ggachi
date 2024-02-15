@@ -19,19 +19,17 @@ import java.util.stream.Collectors;
 @Getter
 @Builder
 public class MemberLoginResponse {
+  private Long userId;
   private String nickname;
-  private String password;
   private String name;
-  private String email;
   private String phoneNumber;
   private String introduction;
   private List<Long> posts;
 
   public static MemberLoginResponse fromEntity(Member member) {
     return MemberLoginResponse.builder()
-      .email(member.getEmail())
+      .userId(member.getId())
       .name(member.getName())
-      .password(member.getPassword())
       .nickname(member.getNickname())
       .phoneNumber(member.getPhoneNumber())
       .introduction(member.getIntroduction())
