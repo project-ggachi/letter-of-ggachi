@@ -1,7 +1,6 @@
 package com.letter.ggachi.service.member.impl;
 
 import com.letter.ggachi.common.exception.MemberException;
-import com.letter.ggachi.common.exception.type.ErrorCode;
 import com.letter.ggachi.domain.dto.request.MemberLoginRequest;
 import com.letter.ggachi.domain.dto.request.MemberSignUpRequest;
 import com.letter.ggachi.domain.dto.response.MemberLoginResponse;
@@ -23,6 +22,7 @@ public class MemberServiceImpl implements MemberService {
   private final PasswordEncoder passwordEncoder;
 
   @Override
+  @Transactional
   public void join(MemberSignUpRequest request) {
     validateNicknameDuplication(request.getNickname());
     validateEmailDuplication(request.getEmail());
@@ -39,6 +39,7 @@ public class MemberServiceImpl implements MemberService {
   }
 
   @Override
+  @Transactional
   public MemberLoginResponse login(MemberLoginRequest request) {
     Member member = getMemberByEmail(request.getEmail());
 
