@@ -1,5 +1,6 @@
 package com.letter.ggachi.domain.dto.request;
 
+import com.letter.ggachi.domain.entity.Member;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -37,4 +38,15 @@ public class MemberSignUpRequest {
   private String phoneNumber;
   
   private String introduction;
+
+  public static MemberSignUpRequest from(Member member) {
+    return MemberSignUpRequest.builder()
+      .nickname(member.getNickname())
+      .password(member.getPassword())
+      .name(member.getName())
+      .email(member.getEmail())
+      .phoneNumber(member.getPhoneNumber())
+      .introduction(member.getIntroduction())
+      .build();
+  }
 }
