@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
-@SequenceGenerator(name = "SEQ_GGACHI_MEMBER_GENERATOR", sequenceName = "SEQ_SEQ_GGACHI_MEMBER")
+@SequenceGenerator(name = "SEQ_GGACHI_MEMBER_GENERATOR", sequenceName = "SEQ_GGACHI_MEMBER")
 public class Member extends Period {
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SEQ_GGACHI_MEMBER_GENERATOR")
   @Column(name = "MEMBER_ID")

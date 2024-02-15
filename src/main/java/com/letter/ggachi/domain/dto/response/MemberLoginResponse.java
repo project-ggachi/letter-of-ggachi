@@ -24,7 +24,7 @@ public class MemberLoginResponse {
   private String name;
   private String phoneNumber;
   private String introduction;
-  private List<Long> posts;
+  private List<Post> posts;
 
   public static MemberLoginResponse fromEntity(Member member) {
     return MemberLoginResponse.builder()
@@ -33,7 +33,7 @@ public class MemberLoginResponse {
       .nickname(member.getNickname())
       .phoneNumber(member.getPhoneNumber())
       .introduction(member.getIntroduction())
-      .posts(member.getPosts().stream().map(Post::getId).collect(Collectors.toList()))
+      .posts(member.getPosts())
       .build();
   }
 }
