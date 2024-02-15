@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 /**
- * please explain file!
+ * SignUp Info
  *
  * @author :uheejoon
  * @fileName :MemberSignUpRequest

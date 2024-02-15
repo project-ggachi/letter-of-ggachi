@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * please explain file!
+ * Check Duplicated Info
  *
  * @author :uheejoon
  * @fileName :ValidateInfoResponse
