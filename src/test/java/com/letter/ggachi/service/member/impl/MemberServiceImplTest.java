@@ -18,6 +18,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -50,6 +52,8 @@ class MemberServiceImplTest {
       .phoneNumber("01082003855")
       .password("1234")
       .email("yhj3855@naver.com")
+      .posts(new ArrayList<>())
+      .letters(new ArrayList<>())
       .build();
     memberService.join(MemberSignUpRequest.from(member));
   }
@@ -67,8 +71,7 @@ class MemberServiceImplTest {
   @DisplayName("로그인")
   void login() {
     MemberLoginResponse loginResponse = memberService.login(MemberLoginRequest.builder().email("yhj3855@naver.com").password("1234").build());
-
-//    assertThrows(MemberException.class, () ->  memberService.login(MemberLoginRequest.builder().email("yhj3855@gmail.com").password("1234").build()));
+//    assertThrows(MemberException.class, () -> memberService.login(MemberLoginRequest.builder().email("yhj3855@naver.com").password("12345").build()));
 //    assertThrows()
   }
 
